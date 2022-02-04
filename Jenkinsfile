@@ -1,9 +1,5 @@
 pipeline {
-  agent { label 'Built-In Node' }
-  options {
-    buildDiscarder(logRotator(numToKeepStr: '5'))
-  }
-  environment {
+   environment {
     DOCKERHUB_CREDENTIALS = credentials('rudechump-dockerhub')
   }
   stages {
