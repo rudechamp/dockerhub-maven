@@ -1,5 +1,9 @@
 pipeline {
-   environment {
+  agent 
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '5'))
+  }
+  environment {
     DOCKERHUB_CREDENTIALS = credentials('rudechump-dockerhub')
   }
   stages {
