@@ -6,7 +6,18 @@ pipeline {
   environment {
     DOCKERHUB_CREDENTIALS = credentials('rudechump-dockerhub')
   }
+  
   stages {
+    stage('Test') {
+      steps {
+        sh 'mvn test'
+      }
+      post {
+        always {
+          junit 'target/surefire-reports/*.xml'
+               }
+           }
+    }
     stage('Build') {
       steps {
         sh 'docker build -t rudechump/dp-alpine:latest .'
