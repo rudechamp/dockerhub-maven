@@ -17,6 +17,7 @@ pipeline {
              print TEST
           }
           catch (e) {
+            print ("Printing error")
             print e
           }
         }
