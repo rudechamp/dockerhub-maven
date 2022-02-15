@@ -13,7 +13,7 @@ pipeline {
             sh 'echo test' 
         script {
           try {
-             def TEST = sh(returnStdout: true, script: "mvn test1")
+             def TEST = sh(returnStdout: true, script: "mvn test")
              print TEST
           }
           catch (e) {
