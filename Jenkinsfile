@@ -12,8 +12,13 @@ pipeline {
       steps {
             sh 'echo test' 
         script {
-         def TEST = sh(returnStdout: true, script: "mvn test")
-         print TEST
+          try {
+             def TEST = sh(returnStdout: true, script: "mvn test1")
+             print TEST
+          }
+          catch (e) {
+            print e
+          }
         }
       }
       post {
