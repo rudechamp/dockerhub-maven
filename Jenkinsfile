@@ -10,9 +10,10 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh 'echo test' 
+            sh 'echo test' 
         script {
-          sh(returnStdout: true, script: "mvn test")
+         def TEST = sh(returnStdout: true, script: "mvn test")
+         print TEST
         }
       }
       post {
