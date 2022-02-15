@@ -10,8 +10,10 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh 'echo test'
-        sh 'mvn test'
+        sh 'echo test' 
+        script {
+          sh(returnStdout: true, script: "mvn test")
+        }
       }
       post {
         always {
